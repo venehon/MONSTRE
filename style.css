@@ -1,10 +1,10 @@
-body{margin:0;font-family:Arial;background:#0f0f0f;color:white}
-header{background:linear-gradient(90deg,#8B0000,#000);padding:20px;text-align:center;font-size:26px}
-.container{display:flex}
-.sidebar{width:300px;background:#1c1c1c;padding:15px;height:100vh;overflow-y:auto}
-.sidebar input,.sidebar select{width:100%;padding:8px;margin-bottom:10px}
-.monster-item{padding:8px;border-bottom:1px solid #333;cursor:pointer}
-.monster-item:hover{background:#300}
-.content{flex:1;padding:40px}
+body{margin:0;font-family:Arial;background:#111;color:white}
+header{background:#8B0000;padding:20px;text-align:center;font-size:26px}
+.controls{padding:15px;background:#1c1c1c;display:flex;gap:10px;flex-wrap:wrap}
+.controls input,.controls select{padding:8px}
+.layout{display:flex}
+#list{width:350px;height:80vh;overflow:auto;background:#1c1c1c;padding:10px}
+.item{padding:8px;border-bottom:1px solid #333;cursor:pointer}
+.item:hover{background:#300}
+#details{flex:1;padding:30px}
 h2{color:#ff4444}
-img{max-width:300px;border-radius:8px;margin-bottom:15px}

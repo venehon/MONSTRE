@@ -5,20 +5,17 @@
     "continent": "Europe",
     "culture": "Folklore roumain / Roman gothique",
     "period": "XVe siècle / 1897",
-    "biography": "Vampire aristocratique inspiré de Vlad III l’Empaleur. Popularisé mondialement par Bram Stoker.",
+    "biography": "Vampire aristocratique inspiré de Vlad III. Popularisé par Bram Stoker.",
     "powers": [
       "Immortalité",
       "Métamorphose",
-      "Hypnose",
-      "Régénération"
+      "Hypnose"
     ],
     "weaknesses": [
       "Soleil",
       "Ail",
-      "Pieu en bois",
-      "Symboles sacrés"
-    ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Dracula_1931_poster.jpg"
+      "Pieu en bois"
+    ]
   },
   {
     "name": "Kraken",
@@ -26,15 +23,72 @@
     "continent": "Europe",
     "culture": "Folklore scandinave",
     "period": "XVIIIe siècle",
-    "biography": "Monstre marin colossal décrit par les marins norvégiens. Capable d’engloutir des navires entiers.",
+    "biography": "Monstre marin colossal capable d’engloutir des navires.",
     "powers": [
       "Tentacules géants",
       "Force colossale"
     ],
     "weaknesses": [
-      "Profondeurs océaniques"
+      "Profondeurs marines"
+    ]
+  },
+  {
+    "name": "Baba Yaga",
+    "country": "Russie",
+    "continent": "Europe",
+    "culture": "Folklore slave",
+    "period": "Moyen Âge",
+    "biography": "Sorcière vivant dans une cabane sur pattes de poulet.",
+    "powers": [
+      "Magie ancienne",
+      "Vol mystique"
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Kraken.jpg"
+    "weaknesses": [
+      "Rituels sacrés"
+    ]
+  },
+  {
+    "name": "Minotaure",
+    "country": "Grèce",
+    "continent": "Europe",
+    "culture": "Mythologie grecque",
+    "period": "Antiquité",
+    "biography": "Créature mi-homme mi-taureau enfermée dans le labyrinthe de Crète.",
+    "powers": [
+      "Force brute"
+    ],
+    "weaknesses": [
+      "Armes tranchantes"
+    ]
+  },
+  {
+    "name": "Loup-Garou",
+    "country": "France",
+    "continent": "Europe",
+    "culture": "Folklore européen",
+    "period": "Moyen Âge",
+    "biography": "Humain se transformant en loup lors de la pleine lune.",
+    "powers": [
+      "Transformation",
+      "Force accrue"
+    ],
+    "weaknesses": [
+      "Argent"
+    ]
+  },
+  {
+    "name": "Banshee",
+    "country": "Irlande",
+    "continent": "Europe",
+    "culture": "Folklore celtique",
+    "period": "Tradition orale",
+    "biography": "Esprit féminin annonçant la mort par ses cris.",
+    "powers": [
+      "Présage de mort"
+    ],
+    "weaknesses": [
+      "Prières"
+    ]
   },
   {
     "name": "Yokai",
@@ -42,49 +96,126 @@
     "continent": "Asie",
     "culture": "Folklore japonais",
     "period": "Époque Edo",
-    "biography": "Terme désignant des centaines d’esprits et créatures surnaturelles du Japon.",
+    "biography": "Ensemble d’esprits et créatures surnaturelles japonaises.",
     "powers": [
       "Illusions",
-      "Possession",
       "Métamorphose"
     ],
     "weaknesses": [
       "Talismans shinto"
+    ]
+  },
+  {
+    "name": "Oni",
+    "country": "Japon",
+    "continent": "Asie",
+    "culture": "Mythologie japonaise",
+    "period": "Antiquité",
+    "biography": "Démon géant rouge ou bleu armé d’une massue.",
+    "powers": [
+      "Force surhumaine"
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Yokai_emaki.jpg"
+    "weaknesses": [
+      "Rituels bouddhistes"
+    ]
+  },
+  {
+    "name": "Jiangshi",
+    "country": "Chine",
+    "continent": "Asie",
+    "culture": "Folklore chinois",
+    "period": "Dynastie Qing",
+    "biography": "Vampire sauteur absorbant l’énergie vitale.",
+    "powers": [
+      "Absorption d’énergie"
+    ],
+    "weaknesses": [
+      "Talismans taoïstes"
+    ]
+  },
+  {
+    "name": "Naga",
+    "country": "Inde",
+    "continent": "Asie",
+    "culture": "Mythologie hindoue",
+    "period": "Antiquité",
+    "biography": "Serpent divin gardien des eaux.",
+    "powers": [
+      "Contrôle des eaux"
+    ],
+    "weaknesses": [
+      "Garuda"
+    ]
+  },
+  {
+    "name": "Aswang",
+    "country": "Philippines",
+    "continent": "Asie",
+    "culture": "Folklore philippin",
+    "period": "Tradition ancienne",
+    "biography": "Créature vampirique nocturne.",
+    "powers": [
+      "Vol nocturne"
+    ],
+    "weaknesses": [
+      "Lumière du jour"
+    ]
+  },
+  {
+    "name": "Mokele-Mbembe",
+    "country": "Congo",
+    "continent": "Afrique",
+    "culture": "Légendes congolaises",
+    "period": "Tradition orale",
+    "biography": "Créature lacustre ressemblant à un dinosaure.",
+    "powers": [
+      "Force massive"
+    ],
+    "weaknesses": [
+      "Inconnues"
+    ]
+  },
+  {
+    "name": "Tokoloshe",
+    "country": "Afrique du Sud",
+    "continent": "Afrique",
+    "culture": "Folklore zoulou",
+    "period": "Tradition ancienne",
+    "biography": "Petit démon malveillant invisible.",
+    "powers": [
+      "Invisibilité"
+    ],
+    "weaknesses": [
+      "Objets sacrés"
+    ]
+  },
+  {
+    "name": "Grootslang",
+    "country": "Afrique du Sud",
+    "continent": "Afrique",
+    "culture": "Mythologie africaine",
+    "period": "Ancienne",
+    "biography": "Créature mi-serpent mi-éléphant.",
+    "powers": [
+      "Force gigantesque"
+    ],
+    "weaknesses": [
+      "Pierres précieuses"
+    ]
   },
   {
     "name": "Wendigo",
     "country": "Canada",
     "continent": "Amérique",
     "culture": "Mythologie algonquine",
-    "period": "Tradition précoloniale",
-    "biography": "Esprit cannibale symbolisant la famine et la cupidité dans les forêts nordiques.",
+    "period": "Précolonial",
+    "biography": "Esprit cannibale symbolisant la famine.",
     "powers": [
-      "Force surhumaine",
-      "Résistance au froid"
+      "Force surhumaine"
     ],
     "weaknesses": [
-      "Feu",
-      "Rituels chamaniques"
-    ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/32/Wendigo.jpg"
-  },
-  {
-    "name": "Baba Yaga",
-    "country": "Russie",
-    "continent": "Europe",
-    "culture": "Folklore slave",
-    "period": "Tradition médiévale",
-    "biography": "Sorcière vivant dans une cabane sur pattes de poulet. Figure ambivalente du folklore slave.",
-    "powers": [
-      "Magie ancienne",
-      "Vol mystique"
-    ],
-    "weaknesses": [
-      "Rituels sacrés"
-    ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Baba_Yaga_Viktor_Vasnetsov.jpg"
+      "Feu"
+    ]
   },
   {
     "name": "Chupacabra",
@@ -92,30 +223,69 @@
     "continent": "Amérique",
     "culture": "Cryptozoologie moderne",
     "period": "1995",
-    "biography": "Créature moderne accusée d’attaquer le bétail en Amérique latine.",
+    "biography": "Créature attaquant le bétail en Amérique latine.",
     "powers": [
-      "Vitesse",
-      "Discrétion nocturne"
+      "Vitesse"
     ],
     "weaknesses": [
-      "Armes conventionnelles"
+      "Armes à feu"
+    ]
+  },
+  {
+    "name": "La Llorona",
+    "country": "Mexique",
+    "continent": "Amérique",
+    "culture": "Folklore mexicain",
+    "period": "Colonial",
+    "biography": "Fantôme pleurant ses enfants noyés.",
+    "powers": [
+      "Apparitions nocturnes"
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Chupacabra_sketch.jpg"
+    "weaknesses": [
+      "Prières"
+    ]
+  },
+  {
+    "name": "Bigfoot",
+    "country": "USA",
+    "continent": "Amérique",
+    "culture": "Cryptozoologie",
+    "period": "XXe siècle",
+    "biography": "Humanoïde géant vivant dans les forêts nord-américaines.",
+    "powers": [
+      "Force",
+      "Discrétion"
+    ],
+    "weaknesses": [
+      "Preuves scientifiques"
+    ]
   },
   {
     "name": "Bunyip",
     "country": "Australie",
     "continent": "Océanie",
     "culture": "Mythologie aborigène",
-    "period": "Tradition orale ancienne",
-    "biography": "Créature aquatique mystérieuse vivant dans les marais australiens.",
+    "period": "Ancienne",
+    "biography": "Monstre aquatique des marais australiens.",
     "powers": [
-      "Camouflage",
       "Vie aquatique"
     ],
     "weaknesses": [
-      "Assèchement des marécages"
+      "Assèchement"
+    ]
+  },
+  {
+    "name": "Taniwha",
+    "country": "Nouvelle-Zélande",
+    "continent": "Océanie",
+    "culture": "Mythologie maorie",
+    "period": "Tradition orale",
+    "biography": "Esprit protecteur ou destructeur des eaux.",
+    "powers": [
+      "Protection mystique"
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Bunyip_illustration.jpg"
+    "weaknesses": [
+      "Offrandes rituelles"
+    ]
   }
 ]

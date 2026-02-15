@@ -3,30 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MONSTRE - Encyclopédie Premium</title>
+<title>MONSTRE - Encyclopédie Ultime</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>MONSTRE - Encyclopédie Ultime</header>
 
-<header>MONSTRE - Encyclopédie Premium</header>
+<div class="controls">
+<input type="text" id="search" placeholder="Rechercher...">
+<select id="continentFilter">
+<option value="">Tous continents</option>
+<option>Europe</option>
+<option>Asie</option>
+<option>Afrique</option>
+<option>Amérique</option>
+<option>Océanie</option>
+</select>
+<select id="countryFilter">
+<option value="">Tous pays</option>
+</select>
+</div>
 
-<div class="container">
-    <aside class="sidebar">
-        <input type="text" id="search" placeholder="Rechercher...">
-        <select id="continentFilter">
-            <option value="">Tous les continents</option>
-            <option value="Europe">Europe</option>
-            <option value="Asie">Asie</option>
-            <option value="Afrique">Afrique</option>
-            <option value="Amérique">Amérique</option>
-            <option value="Océanie">Océanie</option>
-        </select>
-        <div id="monsterList"></div>
-    </aside>
-
-    <main class="content" id="monsterDetails">
-        <h2>Sélectionne un monstre</h2>
-    </main>
+<div class="layout">
+<div id="list"></div>
+<div id="details"><h2>Sélectionne un monstre</h2></div>
 </div>
 
 <script src="script.js"></script>
