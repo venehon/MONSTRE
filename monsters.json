@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Dracula",
+    "country": "Roumanie",
+    "continent": "Europe",
+    "culture": "Folklore roumain / Roman gothique",
+    "period": "XVe siècle / 1897",
+    "biography": "Vampire aristocratique inspiré de Vlad III. Popularisé par Bram Stoker.",
+    "powers": [
+      "Immortalité",
+      "Transformation",
+      "Hypnose"
+    ],
+    "weaknesses": [
+      "Soleil",
+      "Ail",
+      "Pieu en bois"
+    ]
+  },
+  {
+    "name": "Kraken",
+    "country": "Norvège",
+    "continent": "Europe",
+    "culture": "Folklore scandinave",
+    "period": "XVIIIe siècle",
+    "biography": "Monstre marin géant capable d’engloutir des navires entiers.",
+    "powers": [
+      "Tentacules géants",
+      "Force colossale"
+    ],
+    "weaknesses": [
+      "Profondeurs marines"
+    ]
+  },
+  {
+    "name": "Yokai",
+    "country": "Japon",
+    "continent": "Asie",
+    "culture": "Folklore japonais",
+    "period": "Époque Edo",
+    "biography": "Terme regroupant des centaines d’esprits et créatures surnaturelles.",
+    "powers": [
+      "Illusions",
+      "Métamorphose"
+    ],
+    "weaknesses": [
+      "Talismans sacrés"
+    ]
+  },
+  {
+    "name": "Wendigo",
+    "country": "Canada",
+    "continent": "Amérique",
+    "culture": "Mythologie algonquine",
+    "period": "Tradition précoloniale",
+    "biography": "Esprit cannibale symbolisant la famine et la cupidité.",
+    "powers": [
+      "Force surhumaine",
+      "Résistance au froid"
+    ],
+    "weaknesses": [
+      "Feu"
+    ]
+  },
+  {
+    "name": "Bunyip",
+    "country": "Australie",
+    "continent": "Océanie",
+    "culture": "Mythologie aborigène",
+    "period": "Tradition orale ancienne",
+    "biography": "Créature aquatique mystérieuse vivant dans les marécages.",
+    "powers": [
+      "Camouflage",
+      "Vie aquatique"
+    ],
+    "weaknesses": [
+      "Assèchement de l’eau"
+    ]
+  }
+]

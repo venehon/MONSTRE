@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MONSTRE - Encyclopédie Mondiale</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>MONSTRE - Encyclopédie Mondiale</header>
+
+<div class="container">
+    <aside class="sidebar">
+        <input type="text" id="search" placeholder="Rechercher un monstre...">
+        <select id="continentFilter">
+            <option value="">Tous les continents</option>
+            <option value="Europe">Europe</option>
+            <option value="Asie">Asie</option>
+            <option value="Afrique">Afrique</option>
+            <option value="Amérique">Amérique</option>
+            <option value="Océanie">Océanie</option>
+        </select>
+        <div id="monsterList"></div>
+    </aside>
+
+    <main class="content" id="monsterDetails">
+        <h2>Sélectionne un monstre</h2>
+        <p>Les informations apparaîtront ici.</p>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
