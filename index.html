@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bestiaire Universel — Encyclopédie des Monstres du Folklore Mondial</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=MedievalSharp&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment: #1a1510;
+    --parchment-light: #2a2318;
+    --ink: #d4c5a0;
+    --ink-dim: #8a7d65;
+    --gold: #c9a84c;
+    --gold-bright: #e8c84c;
+    --blood: #8b2020;
+    --blood-glow: #c43030;
+    --europe: #4a6fa5;
+    --asie: #a85a3a;
+    --afrique: #b8860b;
+    --ameriques: #2e8b57;
+    --oceanie: #5f9ea0;
+    --moyen-orient: #9b59b6;
+    --border-ornate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 20 Q10 0 20 20 Q30 40 40 20' stroke='%23c9a84c' fill='none' stroke-width='1' opacity='0.3'/%3E%3C/svg%3E");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(139,32,32,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(201,168,76,0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Noise texture overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* === HEADER === */
+  header {
+    text-align: center;
+    padding: 60px 20px 50px;
+    position: relative;
+  }
+
+  header::before, header::after {
+    content: '◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆';
+    display: block;
+    color: var(--gold);
+    opacity: 0.4;
+    font-size: 12px;
+    letter-spacing: 8px;
+    margin: 0 auto;
+  }
+
+  header::before { margin-bottom: 30px; }
+  header::after { margin-top: 30px; }
+
+  .title-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(201,168,76,0.3), 0 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: 4px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    color: var(--ink-dim);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-top: 15px;
+  }
+
+  .intro {
+    max-width: 700px;
+    margin: 30px auto 0;
+    font-style: italic;
+    color: var(--ink-dim);
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  /* === SEARCH & FILTER === */
+  .controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px auto 10px;
+    max-width: 700px;
+  }
+
+  .search-box {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+  }
+
+  .search-box input {
+    width: 100%;
+    padding: 12px 20px 12px 45px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--ink);
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  .search-box input::placeholder { color: var(--ink-dim); opacity: 0.6; }
+  .search-box input:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(201,168,76,0.1); }
+
+  .search-box::before {
+    content: '⚲';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-dim);
+    font-size: 1.2rem;
+  }
+
+  .stat-bar {
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+  }
+
+  .stat-bar span {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* === CONTINENT SECTIONS === */
+  .continent {
+    margin-bottom: 60px;
+    animation: fadeUp 0.6s ease-out both;
+  }
+
+  .continent:nth-child(1) { animation-delay: 0.1s; }
+  .continent:nth-child(2) { animation-delay: 0.15s; }
+  .continent:nth-child(3) { animation-delay: 0.2s; }
+  .continent:nth-child(4) { animation-delay: 0.25s; }
+  .continent:nth-child(5) { animation-delay: 0.3s; }
+  .continent:nth-child(6) { animation-delay: 0.35s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .continent-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    padding: 18px 25px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 6px;
+    transition: all 0.3s;
+    user-select: none;
+  }
+
+  .continent-header:hover {
+    border-color: rgba(201,168,76,0.35);
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  }
+
+  .continent-icon {
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .continent[data-continent="europe"] .continent-icon { background: rgba(74,111,165,0.2); }
+  .continent[data-continent="asie"] .continent-icon { background: rgba(168,90,58,0.2); }
+  .continent[data-continent="afrique"] .continent-icon { background: rgba(184,134,11,0.2); }
+  .continent[data-continent="ameriques"] .continent-icon { background: rgba(46,139,87,0.2); }
+  .continent[data-continent="oceanie"] .continent-icon { background: rgba(95,158,160,0.2); }
+  .continent[data-continent="moyen-orient"] .continent-icon { background: rgba(155,89,182,0.2); }
+
+  .continent-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    flex: 1;
+  }
+
+  .continent-count {
+    font-family: 'Cinzel', serif;
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+  }
+
+  .continent-toggle {
+    color: var(--gold);
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+  }
+
+  .continent.open .continent-toggle { transform: rotate(180deg); }
+
+  .continent-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  .continent.open .continent-body {
+    max-height: 20000px;
+  }
+
+  /* === COUNTRY === */
+  .country {
+    margin: 25px 0 25px 20px;
+    padding-left: 20px;
+    border-left: 2px solid rgba(201,168,76,0.12);
+  }
+
+  .country-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    color: var(--gold-bright);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .country-name .flag { font-size: 1.3rem; }
+
+  .country-name::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(201,168,76,0.2), transparent);
+  }
+
+  /* === MONSTER CARDS === */
+  .monsters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .monster-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 6px;
+    padding: 20px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .monster-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blood), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .monster-card:hover {
+    border-color: rgba(201,168,76,0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+
+  .monster-card:hover::before { opacity: 1; }
+
+  .monster-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.15rem;
+    color: var(--blood-glow);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .monster-name .glyph {
+    font-size: 1.3rem;
+    opacity: 0.8;
+  }
+
+  .monster-type {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 10px;
+  }
+
+  .monster-desc {
+    font-size: 0.95rem;
+    color: var(--ink);
+    opacity: 0.85;
+    line-height: 1.7;
+  }
+
+  .monster-tags {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(201,168,76,0.15);
+    color: var(--ink-dim);
+  }
+
+  /* === DANGER METER === */
+  .danger {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--ink-dim);
+  }
+
+  .danger-bar {
+    flex: 1;
+    max-width: 100px;
+    height: 4px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .danger-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+
+  .danger-1 .danger-fill { width: 20%; background: #4a9; }
+  .danger-2 .danger-fill { width: 40%; background: #aa4; }
+  .danger-3 .danger-fill { width: 60%; background: #da4; }
+  .danger-4 .danger-fill { width: 80%; background: #d64; }
+  .danger-5 .danger-fill { width: 100%; background: var(--blood-glow); }
+
+  /* === FOOTER === */
+  footer {
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    margin-top: 40px;
+  }
+
+  footer p {
+    color: var(--ink-dim);
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+
+  footer .ornament {
+    color: var(--gold);
+    opacity: 0.3;
+    font-size: 0.8rem;
+    letter-spacing: 6px;
+    margin-top: 15px;
+  }
+
+  /* === SCROLL TOP === */
+  .scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: var(--parchment-light);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+    color: var(--gold);
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scroll-top.visible { opacity: 1; }
+  .scroll-top:hover { background: rgba(201,168,76,0.15); }
+
+  /* Hidden state for search */
+  .monster-card.hidden, .country.hidden, .continent.hidden {
+    display: none !important;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--ink-dim);
+    font-style: italic;
+    font-size: 1.1rem;
+    display: none;
+  }
+
+  .no-results.visible { display: block; }
+
+  @media (max-width: 600px) {
+    .monsters-grid { grid-template-columns: 1fr; }
+    .continent-header { padding: 14px 16px; }
+    .country { margin-left: 10px; padding-left: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="title-wrapper">
+      <h1>Bestiaire Universel</h1>
+      <p class="subtitle">Encyclopédie des Monstres du Folklore Mondial</p>
+    </div>
+    <p class="intro">
+      Depuis l'aube de l'humanité, chaque civilisation a peuplé ses récits de créatures
+      terrifiantes et merveilleuses. Ce grimoire rassemble les monstres, esprits et entités
+      qui hantent les mythologies des cinq continents.
+    </p>
+  </header>
+
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Rechercher un monstre, un pays…">
+    </div>
+  </div>
+  <div class="stat-bar">
+    <span id="monsterCount">0</span> créatures répertoriées · <span id="countryCount">0</span> pays · <span id="continentCount">6</span> continents
+  </div>
+
+  <div id="noResults" class="no-results">
+    Aucune créature ne correspond à votre recherche… Peut-être se cache-t-elle encore.
+  </div>
+
+  <main id="mainContent"></main>
+
+  <footer>
+    <p>« Car les monstres ne sont que le reflet de nos peurs les plus anciennes. »</p>
+    <div class="ornament">◆ ◇ ◆ ◇ ◆ ◇ ◆</div>
+  </footer>
+</div>
+
+<button class="scroll-top" id="scrollTop" title="Retour en haut">↑</button>
+
+<script>
+const DATA = [
+  {
+    continent: "europe",
+    name: "Europe",
+    icon: "🏰",
+    countries: [
+      {
+        country: "France", flag: "🇫🇷",
+        monsters: [
+          { name: "La Bête du Gévaudan", glyph: "🐺", type: "Bête monstrueuse", danger: 5, desc: "Créature louvière qui terrorisa le Gévaudan entre 1764 et 1767, tuant plus de cent personnes. Sa nature exacte reste un mystère irrésolu.", tags: ["historique", "canidé", "tueur"] },
+          { name: "Le Drac", glyph: "🌊", type: "Esprit des eaux", danger: 4, desc: "Esprit aquatique du Languedoc qui hante les rivières et entraîne les imprudents dans les profondeurs. Il peut prendre forme humaine pour mieux tromper ses victimes.", tags: ["aquatique", "métamorphe"] },
+          { name: "La Tarasque", glyph: "🐉", type: "Dragon", danger: 5, desc: "Dragon amphibie de Tarascon, mi-tortue mi-lion, qui dévastait la Provence avant d'être dompté par sainte Marthe.", tags: ["dragon", "légendaire", "chrétien"] },
+          { name: "Le Loup-Garou", glyph: "🌕", type: "Lycanthrope", danger: 4, desc: "Humain maudit se transformant en loup les nuits de pleine lune. Les procès de lycanthropie furent nombreux en France aux XVIe et XVIIe siècles.", tags: ["métamorphe", "malédiction"] },
+          { name: "Les Lavandières de Nuit", glyph: "👻", type: "Revenantes", danger: 3, desc: "Spectres de femmes condamnées à laver éternellement du linge ensanglanté au bord des rivières. Croiser leur regard annonce la mort.", tags: ["spectre", "présage"] }
+        ]
+      },
+      {
+        country: "Grèce", flag: "🇬🇷",
+        monsters: [
+          { name: "Méduse", glyph: "🐍", type: "Gorgone", danger: 5, desc: "L'une des trois Gorgones, dont le regard pétrifie quiconque le croise. Autrefois belle, elle fut maudite par Athéna et décapitée par Persée.", tags: ["mythologie", "pétrification"] },
+          { name: "Le Minotaure", glyph: "🐂", type: "Hybride", danger: 5, desc: "Créature à corps d'homme et tête de taureau, enfermée dans le Labyrinthe de Crète par le roi Minos et nourrie de chair humaine.", tags: ["mythologie", "labyrinthe"] },
+          { name: "Cerbère", glyph: "🔥", type: "Chien infernal", danger: 5, desc: "Chien tricéphale gardant les portes des Enfers, empêchant les morts de s'échapper et les vivants d'entrer.", tags: ["mythologie", "gardien", "enfers"] },
+          { name: "L'Hydre de Lerne", glyph: "🐲", type: "Serpent monstrueux", danger: 5, desc: "Serpent aquatique à neuf têtes dont chacune repoussait en double quand on la tranchait. Vaincu par Héraclès lors de ses douze travaux.", tags: ["mythologie", "régénération"] },
+          { name: "Lamia", glyph: "👁️", type: "Démone", danger: 4, desc: "Reine devenue démone dévoreuse d'enfants après qu'Héra eut tué les siens. Elle peut retirer ses yeux pour dormir.", tags: ["démone", "enfants"] }
+        ]
+      },
+      {
+        country: "Scandinavie", flag: "🇳🇴",
+        monsters: [
+          { name: "Le Kraken", glyph: "🦑", type: "Monstre marin", danger: 5, desc: "Pieuvre titanesque capable d'engloutir des navires entiers. Les marins scandinaves confondaient parfois son dos avec une île.", tags: ["marin", "colossal"] },
+          { name: "Draugr", glyph: "💀", type: "Mort-vivant", danger: 4, desc: "Cadavre animé de la mythologie nordique, gardant jalousement son tumulus funéraire et doté d'une force surhumaine.", tags: ["mort-vivant", "gardien"] },
+          { name: "Jörmungandr", glyph: "🐍", type: "Serpent-monde", danger: 5, desc: "Le Serpent de Midgard, si colossal qu'il encercle le monde entier en se mordant la queue. Son combat final avec Thor annoncera le Ragnarök.", tags: ["mythologie", "apocalypse"] },
+          { name: "Le Troll", glyph: "🪨", type: "Géant", danger: 3, desc: "Géant de pierre vivant dans les montagnes et les forêts. Lent d'esprit mais d'une force terrible, il se pétrifie au contact de la lumière du soleil.", tags: ["géant", "montagne"] },
+          { name: "Níðhöggr", glyph: "🐉", type: "Dragon", danger: 5, desc: "Dragon qui ronge sans cesse les racines d'Yggdrasil, l'arbre-monde, et dévore les parjures dans le royaume des morts.", tags: ["dragon", "mythologie"] }
+        ]
+      },
+      {
+        country: "Royaume-Uni", flag: "🇬🇧",
+        monsters: [
+          { name: "Banshee", glyph: "😱", type: "Esprit", danger: 3, desc: "Messagère de la mort dans le folklore gaélique, dont le cri strident annonce le décès imminent d'un membre de la famille.", tags: ["spectre", "présage", "cri"] },
+          { name: "Le Dragon Rouge", glyph: "🐉", type: "Dragon", danger: 5, desc: "Y Ddraig Goch, le dragon rouge du pays de Galles, symbole national qui combattit le dragon blanc saxon dans la légende de Merlin.", tags: ["dragon", "national"] },
+          { name: "La Bête du Bodmin", glyph: "🐆", type: "Félin fantôme", danger: 3, desc: "Grand félin noir rôdant dans les landes du Cornwall, aperçu par des centaines de témoins mais jamais capturé.", tags: ["cryptide", "félin"] },
+          { name: "Le Chien Noir", glyph: "🐕‍🦺", type: "Chien spectral", danger: 4, desc: "Chien fantomatique aux yeux de braise hantant les landes et les carrefours. Le croiser est un présage de mort dans le folklore anglais.", tags: ["spectre", "présage"] }
+        ]
+      },
+      {
+        country: "Roumanie", flag: "🇷🇴",
+        monsters: [
+          { name: "Strigoi", glyph: "🧛", type: "Vampire", danger: 5, desc: "Mort-vivant buveur de sang du folklore roumain, bien antérieur au Dracula de Stoker. Les Strigoi sont des âmes tourmentées incapables de trouver le repos.", tags: ["vampire", "mort-vivant"] },
+          { name: "Le Zmeu", glyph: "🐉", type: "Dragon anthropomorphe", danger: 4, desc: "Créature draconique capable de prendre forme humaine, connue pour enlever des jeunes filles et garder des trésors dans les montagnes.", tags: ["dragon", "enlèvement"] },
+          { name: "Balaur", glyph: "🐲", type: "Dragon polycéphale", danger: 5, desc: "Dragon à plusieurs têtes, gardien de trésors et de sources magiques. Plus primitif et bestial que le Zmeu.", tags: ["dragon", "gardien"] }
+        ]
+      },
+      {
+        country: "Allemagne", flag: "🇩🇪",
+        monsters: [
+          { name: "Le Nachzehrer", glyph: "⚰️", type: "Vampire", danger: 4, desc: "Revenant du folklore germanique qui dévore son propre linceul dans sa tombe avant de s'attaquer aux vivants. La peste suivait son éveil.", tags: ["vampire", "peste"] },
+          { name: "Le Wolpertinger", glyph: "🐰", type: "Chimère", danger: 1, desc: "Créature hybride bavaroise combinant lièvre, ailes de faisan, bois de cerf et crocs. Plus farceur que dangereux.", tags: ["chimère", "bavière"] },
+          { name: "Erlkönig", glyph: "👑", type: "Esprit", danger: 5, desc: "Le Roi des Aulnes, esprit maléfique qui enlève les enfants voyageant de nuit à travers la forêt, immortalisé par Goethe.", tags: ["esprit", "enfants", "forêt"] }
+        ]
+      },
+      {
+        country: "Irlande", flag: "🇮🇪",
+        monsters: [
+          { name: "Dullahan", glyph: "🏇", type: "Cavalier sans tête", danger: 5, desc: "Cavalier décapité chevauchant un destrier noir, portant sa propre tête sous le bras. Où il s'arrête, quelqu'un meurt.", tags: ["cavalier", "mort", "spectre"] },
+          { name: "Le Pooka", glyph: "🐴", type: "Métamorphe", danger: 3, desc: "Esprit farceur pouvant prendre la forme d'un cheval, d'un lapin ou d'un gobelin. Tantôt malicieux, tantôt bienveillant.", tags: ["métamorphe", "farceur"] },
+          { name: "Fear Gorta", glyph: "💀", type: "Revenant", danger: 2, desc: "Le « Homme de la faim », spectre émacié errant pendant les famines. Donner l'aumône à cette apparition porte chance.", tags: ["famine", "spectre"] }
+        ]
+      },
+      {
+        country: "Russie", flag: "🇷🇺",
+        monsters: [
+          { name: "Baba Yaga", glyph: "🏚️", type: "Sorcière", danger: 4, desc: "Sorcière vivant dans une hutte montée sur pattes de poule, au cœur de la forêt. Tantôt aide, tantôt dévore ceux qui la visitent.", tags: ["sorcière", "forêt", "épreuve"] },
+          { name: "Le Domovoi", glyph: "🏠", type: "Esprit domestique", danger: 2, desc: "Esprit protecteur du foyer, petit homme barbu vivant derrière le poêle. Bienveillant si respecté, il devient vengeur si offensé.", tags: ["esprit", "foyer"] },
+          { name: "Koschei l'Immortel", glyph: "💀", type: "Sorcier", danger: 5, desc: "Sorcier squelettique dont l'âme est cachée dans un œuf, lui-même dans un canard, dans un lièvre, dans un coffre. Invincible tant que son secret perdure.", tags: ["immortel", "sorcier"] }
+        ]
+      }
+    ]
+  },
+  {
+    continent: "asie",
+    name: "Asie",
+    icon: "⛩️",
+    countries: [
+      {
+        country: "Japon", flag: "🇯🇵",
+        monsters: [
+          { name: "Oni", glyph: "👹", type: "Démon ogre", danger: 4, desc: "Démons massifs à cornes et peau rouge ou bleue, armés de massues de fer. Ils punissent les pécheurs dans les enfers bouddhiques.", tags: ["démon", "ogre", "bouddhisme"] },
+          { name: "Kappa", glyph: "🐢", type: "Yōkai aquatique", danger: 3, desc: "Créature reptilienne des rivières, portant une coupelle d'eau sur la tête — source de son pouvoir. Friand de concombres et de sumo.", tags: ["yōkai", "aquatique"] },
+          { name: "Yuki-Onna", glyph: "❄️", type: "Esprit des neiges", danger: 4, desc: "Femme spectrale d'une beauté surnaturelle apparaissant lors des tempêtes de neige pour geler les voyageurs égarés de son souffle glacé.", tags: ["esprit", "glace", "beauté"] },
+          { name: "Jorogumo", glyph: "🕷️", type: "Yōkai araignée", danger: 4, desc: "Araignée centenaire capable de prendre l'apparence d'une belle femme pour séduire et dévorer les hommes imprudents.", tags: ["yōkai", "métamorphe", "séduction"] },
+          { name: "Gashadokuro", glyph: "💀", type: "Squelette géant", danger: 5, desc: "Squelette colossal de quinze mètres, né de l'accumulation des os des morts sans sépulture. Invisible, il attrape les voyageurs nocturnes.", tags: ["yōkai", "squelette", "géant"] },
+          { name: "Tengu", glyph: "👺", type: "Yōkai ailé", danger: 3, desc: "Esprits des montagnes au long nez, mi-hommes mi-oiseaux. Guerriers redoutables, ils enseignent parfois l'art du sabre aux mortels dignes.", tags: ["yōkai", "montagne", "martial"] }
+        ]
+      },
+      {
+        country: "Chine", flag: "🇨🇳",
+        monsters: [
+          { name: "Jiangshi", glyph: "🧟", type: "Vampire sauteur", danger: 4, desc: "Cadavre réanimé se déplaçant en sautant, bras tendus, drainant le qi vital de ses victimes. Un talisman sur le front peut le neutraliser.", tags: ["mort-vivant", "qi", "taoïsme"] },
+          { name: "Nian", glyph: "🧨", type: "Bête annuelle", danger: 4, desc: "Monstre marin ou montagnard apparaissant chaque Nouvel An pour dévorer les villageois. Il craint le rouge, le bruit et le feu — d'où les pétards et lanternes.", tags: ["traditions", "nouvel an"] },
+          { name: "Hundun", glyph: "🌫️", type: "Entité primordiale", danger: 3, desc: "Être du chaos originel, masse informe sans visage représentant le néant d'avant la création du monde.", tags: ["primordial", "chaos"] },
+          { name: "Mogwai", glyph: "👿", type: "Démon", danger: 3, desc: "Esprits malveillants cherchant à nuire aux humains, se reproduisant au contact de l'eau et se transformant au-delà de minuit.", tags: ["démon", "malice"] }
+        ]
+      },
+      {
+        country: "Inde", flag: "🇮🇳",
+        monsters: [
+          { name: "Rakshasa", glyph: "👹", type: "Démon", danger: 5, desc: "Démons métamorphes de la mythologie hindoue, capables de prendre n'importe quelle forme. Ils perturbent les rituels sacrés et dévorent les humains.", tags: ["démon", "métamorphe", "hindouisme"] },
+          { name: "Naga", glyph: "🐍", type: "Serpent divin", danger: 4, desc: "Serpents divins mi-humains mi-reptiliens, gardiens des trésors souterrains et des sources. Vénérés et craints à la fois.", tags: ["serpent", "divin", "gardien"] },
+          { name: "Vetala", glyph: "🦇", type: "Esprit des morts", danger: 3, desc: "Esprits habitant les cadavres suspendus aux arbres des cimetières. Ils possèdent une connaissance surnaturelle du passé, du présent et de l'avenir.", tags: ["esprit", "connaissance", "cimetière"] },
+          { name: "Pishacha", glyph: "😈", type: "Démon de chair", danger: 4, desc: "Démons se nourrissant de chair humaine, hantant les champs de crémation et les carrefours. Ils peuvent posséder les esprits faibles.", tags: ["démon", "cannibalisme", "possession"] }
+        ]
+      },
+      {
+        country: "Corée", flag: "🇰🇷",
+        monsters: [
+          { name: "Gumiho", glyph: "🦊", type: "Renard à neuf queues", danger: 5, desc: "Renard millénaire à neuf queues prenant l'apparence d'une belle femme pour séduire les hommes et dévorer leur foie ou leur cœur.", tags: ["renard", "séduction", "métamorphe"] },
+          { name: "Dokkaebi", glyph: "👺", type: "Gobelin", danger: 2, desc: "Gobelins farceurs nés d'objets abandonnés. Armés de massues magiques, ils aiment les défis de lutte et les devinettes.", tags: ["gobelin", "farceur", "magie"] },
+          { name: "Bulgasari", glyph: "🦏", type: "Bête de métal", danger: 4, desc: "Monstre dévoreur de fer et d'acier, impossible à tuer car les armes le nourrissent. Seul le feu peut en venir à bout.", tags: ["invulnérable", "métal"] }
+        ]
+      },
+      {
+        country: "Philippines", flag: "🇵🇭",
+        monsters: [
+          { name: "Aswang", glyph: "🦇", type: "Métamorphe", danger: 5, desc: "Créature changeant de forme — le jour une personne ordinaire, la nuit un monstre se nourrissant de fœtus et d'entrailles grâce à sa longue langue.", tags: ["métamorphe", "nocturne", "vampire"] },
+          { name: "Manananggal", glyph: "🩸", type: "Viscère volante", danger: 5, desc: "Femme capable de séparer son torse de ses jambes pour voler dans la nuit, ses entrailles pendant sous elle, cherchant des victimes endormies.", tags: ["vol", "nocturne", "viscères"] },
+          { name: "Tikbalang", glyph: "🐴", type: "Homme-cheval", danger: 3, desc: "Géant à tête de cheval rôdant dans les forêts, égarant les voyageurs en créant des illusions et des chemins impossibles.", tags: ["hybride", "forêt", "illusion"] }
+        ]
+      },
+      {
+        country: "Thaïlande", flag: "🇹🇭",
+        monsters: [
+          { name: "Phi Tai Hong", glyph: "👻", type: "Fantôme vengeur", danger: 5, desc: "Esprit d'une personne morte de mort violente, extrêmement dangereux et vindicatif, capable de posséder les vivants.", tags: ["fantôme", "vengeance", "possession"] },
+          { name: "Krasue", glyph: "🩸", type: "Tête flottante", danger: 4, desc: "Tête de femme flottant dans la nuit avec ses viscères pendantes, cherchant du sang frais et de la chair crue à dévorer.", tags: ["nocturne", "viscères"] }
+        ]
+      }
+    ]
+  },
+  {
+    continent: "afrique",
+    name: "Afrique",
+    icon: "🌍",
+    countries: [
+      {
+        country: "Afrique du Sud", flag: "🇿🇦",
+        monsters: [
+          { name: "Tokoloshe", glyph: "👤", type: "Lutin maléfique", danger: 3, desc: "Petit être aquatique invoqué par les sorciers pour tourmenter les ennemis. On surélève les lits sur des briques pour échapper à ses griffes.", tags: ["lutin", "sorcellerie", "zoulou"] },
+          { name: "Impundulu", glyph: "⚡", type: "Oiseau-tonnerre", danger: 4, desc: "Oiseau vampirique géant qui contrôle la foudre, serviteur des sorcières. Il peut prendre forme humaine pour séduire ses victimes.", tags: ["oiseau", "foudre", "vampire"] }
+        ]
+      },
+      {
+        country: "Congo", flag: "🇨🇩",
+        monsters: [
+          { name: "Mokele-Mbembe", glyph: "🦕", type: "Cryptide", danger: 3, desc: "Créature reptilienne colossale vivant dans les marais du bassin du Congo, décrite comme ressemblant à un sauropode. Objet de nombreuses expéditions.", tags: ["cryptide", "dinosaure", "marais"] },
+          { name: "Kongamato", glyph: "🦅", type: "Reptile volant", danger: 4, desc: "Créature volante ressemblant à un ptérosaure, terrorisant les pêcheurs et chavirant les pirogues sur les rivières.", tags: ["cryptide", "volant", "reptile"] }
+        ]
+      },
+      {
+        country: "Égypte", flag: "🇪🇬",
+        monsters: [
+          { name: "Apophis", glyph: "🐍", type: "Serpent du chaos", danger: 5, desc: "Serpent cosmique géant incarnation du chaos, cherchant chaque nuit à dévorer la barque solaire de Rê pour plonger le monde dans les ténèbres éternelles.", tags: ["serpent", "chaos", "cosmique"] },
+          { name: "Ammit", glyph: "🐊", type: "Dévoreuse d'âmes", danger: 5, desc: "Démone à tête de crocodile, corps de lion et arrière-train d'hippopotame, dévorant le cœur des défunts jugés indignes lors de la pesée des âmes.", tags: ["jugement", "enfers", "chimère"] },
+          { name: "Le Sphinx", glyph: "🦁", type: "Chimère gardienne", danger: 4, desc: "Créature à corps de lion et tête humaine posant des énigmes mortelles aux voyageurs. Qui échoue à répondre est dévoré.", tags: ["énigme", "gardien", "chimère"] }
+        ]
+      },
+      {
+        country: "Nigeria", flag: "🇳🇬",
+        monsters: [
+          { name: "Abiku", glyph: "👶", type: "Esprit enfantin", danger: 3, desc: "Esprits qui naissent dans des corps d'enfants pour mourir jeunes et renaître encore, piégeant les familles dans un cycle de deuil éternel.", tags: ["esprit", "enfant", "cycle"] },
+          { name: "Ogbanje", glyph: "🔄", type: "Esprit cyclique", danger: 3, desc: "Similaire à l'Abiku, esprit malin chez les Igbo qui s'incarne dans un enfant destiné à mourir prématurément pour tourmenter ses parents.", tags: ["esprit", "réincarnation", "igbo"] }
+        ]
+      },
+      {
+        country: "Madagascar", flag: "🇲🇬",
+        monsters: [
+          { name: "Kinoly", glyph: "🧟", type: "Mort-vivant", danger: 4, desc: "Cadavre réanimé par sorcellerie dans la tradition malgache, aux ongles longs comme des griffes, errant la nuit pour dévorer les vivants.", tags: ["mort-vivant", "sorcellerie", "nocturne"] },
+          { name: "Kalanoro", glyph: "🌿", type: "Lutin sauvage", danger: 2, desc: "Petits êtres sauvages des forêts malgaches, aux longs ongles et aux yeux brillants, connus pour voler de la nourriture aux villageois.", tags: ["lutin", "forêt", "voleur"] }
+        ]
+      }
+    ]
+  },
+  {
+    continent: "ameriques",
+    name: "Amériques",
+    icon: "🗿",
+    countries: [
+      {
+        country: "Mexique", flag: "🇲🇽",
+        monsters: [
+          { name: "La Llorona", glyph: "😭", type: "Fantôme", danger: 4, desc: "Spectre d'une femme pleurant éternellement ses enfants noyés. Son cri glaçant résonne le long des rivières, annonçant le malheur à qui l'entend.", tags: ["fantôme", "rivière", "lamentation"] },
+          { name: "El Chupacabra", glyph: "🩸", type: "Cryptide", danger: 3, desc: "Créature vampirique s'attaquant au bétail pour en drainer le sang. Décrite comme un reptile bipède aux yeux rouges et aux épines dorsales.", tags: ["cryptide", "vampire", "bétail"] },
+          { name: "Nahual", glyph: "🐆", type: "Métamorphe", danger: 4, desc: "Sorcier mésoaméricain capable de se transformer en son animal totem — jaguar, aigle ou coyote — pour pratiquer la magie noire.", tags: ["métamorphe", "sorcier", "nahuatl"] },
+          { name: "Ahuizotl", glyph: "🐒", type: "Bête aquatique", danger: 4, desc: "Créature aquatique aztèque ressemblant à un chien épineux avec une main au bout de la queue, attirant les pêcheurs sous l'eau.", tags: ["aquatique", "aztèque"] }
+        ]
+      },
+      {
+        country: "Haïti", flag: "🇭🇹",
+        monsters: [
+          { name: "Le Zombie", glyph: "🧟", type: "Mort-vivant", danger: 3, desc: "Cadavre réanimé par un bokor (sorcier vaudou) pour en faire un esclave sans volonté. Le concept originel, bien différent de la culture pop.", tags: ["vaudou", "mort-vivant", "esclave"] },
+          { name: "Loup-Garou Haïtien", glyph: "🐺", type: "Sorcier", danger: 4, desc: "Distinct du loup-garou européen, c'est un sorcier vaudou se transformant en animal pour se nourrir du sang des enfants.", tags: ["vaudou", "métamorphe"] }
+        ]
+      },
+      {
+        country: "États-Unis", flag: "🇺🇸",
+        monsters: [
+          { name: "Wendigo", glyph: "🦌", type: "Esprit cannibale", danger: 5, desc: "Esprit de la faim insatiable des Algonquins. Humain transformé par l'acte de cannibalisme en géant squelettique au cœur de glace, condamné à une faim éternelle.", tags: ["amérindien", "cannibalisme", "glace"] },
+          { name: "Skinwalker", glyph: "🐺", type: "Sorcier métamorphe", danger: 5, desc: "Sorcier navajo ayant renoncé à son humanité pour acquérir le pouvoir de se transformer en n'importe quel animal. Parler de lui attire son attention.", tags: ["navajo", "métamorphe", "tabou"] },
+          { name: "Le Mothman", glyph: "🦋", type: "Cryptide", danger: 3, desc: "Créature ailée aux yeux rouges lumineux aperçue à Point Pleasant, Virginie-Occidentale, en 1966-67, avant l'effondrement du Silver Bridge.", tags: ["cryptide", "présage", "moderne"] },
+          { name: "Thunderbird", glyph: "🦅", type: "Oiseau mythique", danger: 4, desc: "Oiseau gigantesque des légendes amérindiennes dont le battement d'ailes provoque le tonnerre et dont les yeux lancent des éclairs.", tags: ["amérindien", "oiseau", "tonnerre"] }
+        ]
+      },
+      {
+        country: "Brésil", flag: "🇧🇷",
+        monsters: [
+          { name: "Corpo-Seco", glyph: "🧟", type: "Mort-vivant", danger: 3, desc: "Homme si mauvais que ni Dieu ni le Diable ne voulurent de son âme. Son cadavre desséché erre éternellement, rejeté par la terre elle-même.", tags: ["mort-vivant", "rejeté", "errant"] },
+          { name: "Mapinguari", glyph: "🦥", type: "Cryptide", danger: 4, desc: "Créature géante de l'Amazonie à un seul œil et une bouche sur le ventre, couverte de fourrure rouge et dégageant une puanteur insoutenable.", tags: ["cryptide", "amazonie", "cyclope"] },
+          { name: "Cuca", glyph: "🐊", type: "Croqueuse d'enfants", danger: 4, desc: "Sorcière-alligator du folklore brésilien qui enlève les enfants désobéissants. L'équivalent du croque-mitaine lusophone.", tags: ["sorcière", "enfants", "reptile"] },
+          { name: "Boto Cor-de-Rosa", glyph: "🐬", type: "Métamorphe", danger: 3, desc: "Dauphin rose de l'Amazone se transformant en séduisant jeune homme les nuits de fête pour charmer les femmes des villages riverains.", tags: ["métamorphe", "séduction", "amazonie"] }
+        ]
+      },
+      {
+        country: "Chili / Argentine", flag: "🇨🇱",
+        monsters: [
+          { name: "El Trauco", glyph: "🌳", type: "Nain des forêts", danger: 3, desc: "Nain difforme des forêts de Chiloé dont le regard paralyse les femmes. On lui attribue les grossesses inexpliquées de l'archipel.", tags: ["nain", "forêt", "chiloé"] },
+          { name: "La Fiura", glyph: "👩", type: "Enchanteresse", danger: 3, desc: "Femme repoussante des bois de Chiloé dont le souffle rend fou et dont le regard provoque des torticolis permanents.", tags: ["enchanteresse", "folie", "chiloé"] }
+        ]
+      },
+      {
+        country: "Canada", flag: "🇨🇦",
+        monsters: [
+          { name: "Ogopogo", glyph: "🐉", type: "Serpent lacustre", danger: 2, desc: "Serpent de mer géant vivant dans le lac Okanagan en Colombie-Britannique. Les Premières Nations l'appelaient N'ha-a-itk, le démon du lac.", tags: ["cryptide", "lacustre"] },
+          { name: "Wechuge", glyph: "🐻", type: "Esprit possesseur", danger: 5, desc: "Dans le folklore athabascan, personne possédée par un esprit animal devenant un monstre cannibale géant — parent du Wendigo.", tags: ["amérindien", "possession", "cannibale"] }
+        ]
+      }
+    ]
+  },
+  {
+    continent: "oceanie",
+    name: "Océanie",
+    icon: "🏝️",
+    countries: [
+      {
+        country: "Australie", flag: "🇦🇺",
+        monsters: [
+          { name: "Bunyip", glyph: "🌊", type: "Bête des marais", danger: 4, desc: "Créature terrifiante des cours d'eau australiens selon le Temps du Rêve aborigène. Ses rugissements nocturnes glacent le sang.", tags: ["aborigène", "aquatique", "cryptide"] },
+          { name: "Yara-ma-yha-who", glyph: "🩸", type: "Vampire arboricole", danger: 3, desc: "Petite créature rouge à grande bouche vivant dans les figuiers, aspirant le sang de ses victimes par ses ventouses avant de les avaler et régurgiter.", tags: ["aborigène", "vampire", "arbre"] },
+          { name: "Le Serpent Arc-en-ciel", glyph: "🌈", type: "Serpent créateur", danger: 5, desc: "Être cosmique primordial du Temps du Rêve qui sculpta les rivières et les vallées. Divinité ambivalente, créatrice et destructrice.", tags: ["aborigène", "créateur", "cosmique"] },
+          { name: "Drop Bear", glyph: "🐨", type: "Prédateur arboricole", danger: 2, desc: "Version carnivore du koala se laissant tomber sur les touristes depuis la canopée. Légende urbaine australienne devenue folklore moderne.", tags: ["moderne", "koala", "humour"] }
+        ]
+      },
+      {
+        country: "Nouvelle-Zélande", flag: "🇳🇿",
+        monsters: [
+          { name: "Taniwha", glyph: "🐊", type: "Gardien des eaux", danger: 4, desc: "Être surnaturel maori vivant dans les rivières, les grottes et l'océan. Certains sont des gardiens protecteurs, d'autres des prédateurs impitoyables.", tags: ["maori", "aquatique", "gardien"] },
+          { name: "Maero", glyph: "🦍", type: "Homme sauvage", danger: 4, desc: "Géants velus et féroces de la mythologie maorie, habitant les forêts les plus reculées et attaquant quiconque s'aventure sur leur territoire.", tags: ["maori", "géant", "forêt"] }
+        ]
+      },
+      {
+        country: "Papouasie-Nouvelle-Guinée", flag: "🇵🇬",
+        monsters: [
+          { name: "Ropen", glyph: "🦇", type: "Reptile volant", danger: 3, desc: "Créature volante bioluminescente ressemblant à un ptérosaure, aperçue la nuit au-dessus des jungles. Les autochtones évitent ses territoires.", tags: ["cryptide", "volant", "bioluminescent"] }
+        ]
+      },
+      {
+        country: "Polynésie", flag: "🏝️",
+        monsters: [
+          { name: "Tu'i Malila", glyph: "🐢", type: "Tortue légendaire", danger: 1, desc: "Tortue sacrée de Tonga, considérée comme un messager des dieux. Symbole de sagesse ancestrale et de longévité surnaturelle.", tags: ["sacré", "tortue", "sagesse"] },
+          { name: "Pua Tu Tahi", glyph: "🐙", type: "Poulpe géant", danger: 4, desc: "Pieuvre colossale des légendes polynésiennes bloquant les passages entre les îles et dévorant les pirogues qui osaient naviguer de nuit.", tags: ["poulpe", "marin", "colossal"] }
+        ]
+      }
+    ]
+  },
+  {
+    continent: "moyen-orient",
+    name: "Moyen-Orient & Asie Centrale",
+    icon: "🕌",
+    countries: [
+      {
+        country: "Monde Arabe", flag: "🌙",
+        monsters: [
+          { name: "Djinn", glyph: "🔥", type: "Esprit de feu", danger: 4, desc: "Êtres de feu sans fumée créés avant les humains selon le Coran. Invisibles, capables de possession, ils vivent dans un monde parallèle au nôtre.", tags: ["islam", "feu", "invisible"] },
+          { name: "Ifrit", glyph: "🔥", type: "Djinn supérieur", danger: 5, desc: "Puissante classe de djinns associée au feu et à la rébellion. Immenses et terrifiants, ils peuvent accorder des souhaits ou détruire des cités.", tags: ["djinn", "feu", "puissant"] },
+          { name: "Ghoul", glyph: "⚰️", type: "Démon charognard", danger: 4, desc: "Démon des cimetières et des déserts se nourrissant de cadavres et de voyageurs égarés. Il peut prendre l'apparence de la dernière personne dévorée.", tags: ["charognard", "métamorphe", "désert"] },
+          { name: "Bahamut", glyph: "🐟", type: "Poisson-monde", danger: 5, desc: "Poisson cosmique d'une taille inimaginable supportant le monde sur son dos dans la cosmologie arabe. Son moindre mouvement provoque des séismes.", tags: ["cosmique", "colossal", "monde"] }
+        ]
+      },
+      {
+        country: "Perse / Iran", flag: "🇮🇷",
+        monsters: [
+          { name: "Div", glyph: "👹", type: "Démon", danger: 4, desc: "Démons massifs du Shahnameh, ennemis jurés des héros et des rois. Certains sont des sorciers, d'autres des guerriers d'une force terrifiante.", tags: ["démon", "épopée", "guerrier"] },
+          { name: "Simurgh", glyph: "🦚", type: "Oiseau mythique", danger: 2, desc: "Oiseau bienveillant de sagesse immense, nichant au sommet de l'Arbre de Vie. Il possède le savoir de tous les âges et guérit les blessures mortelles.", tags: ["oiseau", "sagesse", "guérisseur"] },
+          { name: "Al", glyph: "😈", type: "Démone", danger: 4, desc: "Démone ciblant les femmes enceintes et les nouveau-nés, cherchant à dérober le foie des mères pendant l'accouchement.", tags: ["démone", "naissance", "foie"] }
+        ]
+      },
+      {
+        country: "Turquie", flag: "🇹🇷",
+        monsters: [
+          { name: "Karakoncolos", glyph: "🌑", type: "Démon nocturne", danger: 3, desc: "Créature apparaissant les nuits d'hiver, posant des devinettes aux passants. Une mauvaise réponse condamne à être frappé ou enlevé.", tags: ["nocturne", "devinette", "hiver"] },
+          { name: "Tepegöz", glyph: "👁️", type: "Cyclope", danger: 5, desc: "Géant à un seul œil du Livre de Dede Korkut, né de l'union d'un berger et d'une fée. Dévoreur d'hommes quasi invincible.", tags: ["cyclope", "géant", "épopée"] }
+        ]
+      },
+      {
+        country: "Mongolie", flag: "🇲🇳",
+        monsters: [
+          { name: "Olgoi-Khorkhoi", glyph: "🐛", type: "Ver mortel", danger: 4, desc: "Le « ver intestin » du désert de Gobi, long de plus d'un mètre, capable de tuer à distance par décharge électrique ou jet de venin acide.", tags: ["cryptide", "désert", "venin"] },
+          { name: "Almas", glyph: "🦍", type: "Homme sauvage", danger: 2, desc: "Hominoïde velu des montagnes de l'Altaï, équivalent mongol du Yéti. Les nomades rapportent des rencontres depuis des siècles.", tags: ["cryptide", "hominoïde", "montagne"] }
+        ]
+      }
+    ]
+  }
+];
+
+// ========== RENDER ==========
+function renderAll(data) {
+  const main = document.getElementById('mainContent');
+  let totalMonsters = 0;
+  let totalCountries = 0;
+
+  main.innerHTML = data.map(cont => {
+    const countryHTML = cont.countries.map(c => {
+      totalCountries++;
+      const monstersHTML = c.monsters.map(m => {
+        totalMonsters++;
+        return `
+          <div class="monster-card" data-name="${m.name.toLowerCase()}" data-tags="${m.tags.join(' ')}" data-country="${c.country.toLowerCase()}">
+            <div class="monster-name"><span class="glyph">${m.glyph}</span>${m.name}</div>
+            <div class="monster-type">${m.type}</div>
+            <div class="monster-desc">${m.desc}</div>
+            <div class="monster-tags">${m.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+            <div class="danger danger-${m.danger}">
+              <span>Danger</span>
+              <div class="danger-bar"><div class="danger-fill"></div></div>
+              <span>${'☠'.repeat(m.danger)}</span>
+            </div>
+          </div>`;
+      }).join('');
+
+      return `
+        <div class="country" data-country="${c.country.toLowerCase()}">
+          <div class="country-name"><span class="flag">${c.flag}</span>${c.country}</div>
+          <div class="monsters-grid">${monstersHTML}</div>
+        </div>`;
+    }).join('');
+
+    const monsterCount = cont.countries.reduce((s, c) => s + c.monsters.length, 0);
+    return `
+      <div class="continent open" data-continent="${cont.continent}">
+        <div class="continent-header" onclick="toggleContinent(this)">
+          <div class="continent-icon">${cont.icon}</div>
+          <div class="continent-title">${cont.name}</div>
+          <div class="continent-count">${monsterCount} créatures</div>
+          <div class="continent-toggle">▼</div>
+        </div>
+        <div class="continent-body">${countryHTML}</div>
+      </div>`;
+  }).join('');
+
+  document.getElementById('monsterCount').textContent = totalMonsters;
+  document.getElementById('countryCount').textContent = totalCountries;
+}
+
+function toggleContinent(header) {
+  header.parentElement.classList.toggle('open');
+}
+
+// ========== SEARCH ==========
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.monster-card');
+  const countries = document.querySelectorAll('.country');
+  const continents = document.querySelectorAll('.continent');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const match = !q ||
+      card.dataset.name.includes(q) ||
+      card.dataset.tags.includes(q) ||
+      card.dataset.country.includes(q) ||
+      card.querySelector('.monster-desc').textContent.toLowerCase().includes(q) ||
+      card.querySelector('.monster-type').textContent.toLowerCase().includes(q);
+    card.classList.toggle('hidden', !match);
+    if (match) visibleCount++;
+  });
+
+  countries.forEach(c => {
+    const hasVisible = c.querySelectorAll('.monster-card:not(.hidden)').length > 0;
+    c.classList.toggle('hidden', !hasVisible);
+  });
+
+  continents.forEach(c => {
+    const hasVisible = c.querySelectorAll('.monster-card:not(.hidden)').length > 0;
+    c.classList.toggle('hidden', !hasVisible);
+    if (hasVisible && q) c.classList.add('open');
+  });
+
+  document.getElementById('noResults').classList.toggle('visible', visibleCount === 0 && q);
+});
+
+// ========== SCROLL TOP ==========
+const scrollBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollBtn.classList.toggle('visible', window.scrollY > 400);
+});
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Init
+renderAll(DATA);
+</script>
+</body>
+</html>
