@@ -1,11 +1,11 @@
 body{margin:0;font-family:Arial;background:#111;color:white}
 header{background:#8B0000;padding:20px;text-align:center;font-size:26px}
-.controls{padding:15px;background:#1c1c1c;display:flex;gap:10px}
+.controls{padding:15px;background:#1c1c1c;display:flex;gap:10px;flex-wrap:wrap}
 .controls input,.controls select{padding:8px}
 .layout{display:flex}
-#list{width:320px;height:80vh;overflow:auto;background:#1c1c1c;padding:10px}
+#list{width:350px;height:80vh;overflow:auto;background:#1c1c1c;padding:10px}
 .item{padding:8px;border-bottom:1px solid #333;cursor:pointer}
 .item:hover{background:#300}
-#details{flex:1;padding:30px;line-height:1.6}
+#details{flex:1;padding:30px}
+img{max-width:400px;margin-bottom:15px;border-radius:8px}
 h2{color:#ff4444}
-img{max-width:400px;border-radius:8px;margin-bottom:15px}
