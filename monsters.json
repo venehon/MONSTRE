@@ -2,86 +2,85 @@
   {
     "name": "Dracula",
     "country": "Roumanie",
-    "continent": "Europe"
+    "continent": "Europe",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Dracula_1931_poster.jpg",
+    "biography": "Dracula est une figure emblématique du vampire moderne, popularisée par le roman de Bram Stoker en 1897. Inspiré de Vlad III l’Empaleur, il incarne l’aristocrate immortel se nourrissant de sang humain et symbolise les peurs victoriennes liées à la mort et à l’étranger."
   },
   {
     "name": "Kraken",
     "country": "Norvège",
-    "continent": "Europe"
+    "continent": "Europe",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Kraken.jpg",
+    "biography": "Le Kraken est un monstre marin géant du folklore scandinave. Décrit au XVIIIe siècle, il aurait été capable d’engloutir des navires entiers. Il représente la peur ancestrale des profondeurs océaniques."
   },
   {
     "name": "Baba Yaga",
     "country": "Russie",
-    "continent": "Europe"
+    "continent": "Europe",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Baba_Yaga_Viktor_Vasnetsov.jpg",
+    "biography": "Baba Yaga est une sorcière du folklore slave vivant dans une cabane sur pattes de poulet. Elle peut être tantôt bienveillante, tantôt malveillante, incarnant la nature sauvage et mystérieuse."
   },
   {
-    "name": "Minotaur",
+    "name": "Minotaure",
     "country": "Grèce",
-    "continent": "Europe"
+    "continent": "Europe",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Minotaur_by_Gustave_Dor%C3%A9.jpg",
+    "biography": "Le Minotaure est une créature mi-homme mi-taureau enfermée dans le labyrinthe de Crète. Il symbolise la bestialité et la violence primitive dans la mythologie grecque."
   },
   {
     "name": "Yokai",
     "country": "Japon",
-    "continent": "Asie"
+    "continent": "Asie",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Yokai_emaki.jpg",
+    "biography": "Les Yokai regroupent une vaste catégorie d’esprits et de créatures surnaturelles japonaises. Popularisés durant l’époque Edo, ils représentent les peurs et mystères du Japon traditionnel."
   },
   {
     "name": "Oni",
     "country": "Japon",
-    "continent": "Asie"
+    "continent": "Asie",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Oni_mask.jpg",
+    "biography": "Les Oni sont des démons géants du folklore japonais, souvent représentés avec une massue et des cornes. Ils incarnent les forces destructrices et les châtiments."
   },
   {
     "name": "Jiangshi",
     "country": "Chine",
-    "continent": "Asie"
-  },
-  {
-    "name": "Naga",
-    "country": "Inde",
-    "continent": "Asie"
+    "continent": "Asie",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Jiangshi.jpg",
+    "biography": "Le Jiangshi est un vampire sauteur du folklore chinois. Il absorbe l’énergie vitale des vivants et se déplace de manière rigide, les bras tendus."
   },
   {
     "name": "Wendigo",
     "country": "Canada",
-    "continent": "Amérique"
+    "continent": "Amérique",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/32/Wendigo.jpg",
+    "biography": "Le Wendigo est une entité issue des traditions algonquines. Il symbolise la famine, l’hiver et la cupidité excessive, pouvant transformer un humain en monstre cannibale."
   },
   {
     "name": "Chupacabra",
     "country": "Porto Rico",
-    "continent": "Amérique"
-  },
-  {
-    "name": "La Llorona",
-    "country": "Mexique",
-    "continent": "Amérique"
+    "continent": "Amérique",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Chupacabra_sketch.jpg",
+    "biography": "Le Chupacabra est une créature moderne de la cryptozoologie, apparue dans les années 1990. Il est accusé d’attaquer le bétail et de sucer leur sang."
   },
   {
     "name": "Bigfoot",
     "country": "USA",
-    "continent": "Amérique"
+    "continent": "Amérique",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/50/Paterson_film_frame_352.jpg",
+    "biography": "Bigfoot, ou Sasquatch, est une créature humanoïde géante censée vivre dans les forêts d’Amérique du Nord. Il fait partie des cryptides les plus célèbres."
   },
   {
     "name": "Mokele-Mbembe",
     "country": "Congo",
-    "continent": "Afrique"
-  },
-  {
-    "name": "Tokoloshe",
-    "country": "Afrique du Sud",
-    "continent": "Afrique"
-  },
-  {
-    "name": "Grootslang",
-    "country": "Afrique du Sud",
-    "continent": "Afrique"
+    "continent": "Afrique",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Mokele-mbembe_sketch.jpg",
+    "biography": "Le Mokele-Mbembe est une créature légendaire du bassin du Congo, parfois décrite comme ressemblant à un dinosaure sauropode vivant dans les marécages."
   },
   {
     "name": "Bunyip",
     "country": "Australie",
-    "continent": "Océanie"
-  },
-  {
-    "name": "Taniwha",
-    "country": "Nouvelle-Zélande",
-    "continent": "Océanie"
+    "continent": "Océanie",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Bunyip_illustration.jpg",
+    "biography": "Le Bunyip est un monstre aquatique issu des traditions aborigènes australiennes. Il hanterait les marais et points d’eau isolés."
   }
 ]
