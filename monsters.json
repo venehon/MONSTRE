@@ -5,17 +5,20 @@
     "continent": "Europe",
     "culture": "Folklore roumain / Roman gothique",
     "period": "XVe siècle / 1897",
-    "biography": "Vampire aristocratique inspiré de Vlad III. Popularisé par Bram Stoker.",
+    "biography": "Vampire aristocratique inspiré de Vlad III l’Empaleur. Popularisé mondialement par Bram Stoker.",
     "powers": [
       "Immortalité",
-      "Transformation",
-      "Hypnose"
+      "Métamorphose",
+      "Hypnose",
+      "Régénération"
     ],
     "weaknesses": [
       "Soleil",
       "Ail",
-      "Pieu en bois"
-    ]
+      "Pieu en bois",
+      "Symboles sacrés"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Dracula_1931_poster.jpg"
   },
   {
     "name": "Kraken",
@@ -23,14 +26,15 @@
     "continent": "Europe",
     "culture": "Folklore scandinave",
     "period": "XVIIIe siècle",
-    "biography": "Monstre marin géant capable d’engloutir des navires entiers.",
+    "biography": "Monstre marin colossal décrit par les marins norvégiens. Capable d’engloutir des navires entiers.",
     "powers": [
       "Tentacules géants",
       "Force colossale"
     ],
     "weaknesses": [
-      "Profondeurs marines"
-    ]
+      "Profondeurs océaniques"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Kraken.jpg"
   },
   {
     "name": "Yokai",
@@ -38,14 +42,16 @@
     "continent": "Asie",
     "culture": "Folklore japonais",
     "period": "Époque Edo",
-    "biography": "Terme regroupant des centaines d’esprits et créatures surnaturelles.",
+    "biography": "Terme désignant des centaines d’esprits et créatures surnaturelles du Japon.",
     "powers": [
       "Illusions",
+      "Possession",
       "Métamorphose"
     ],
     "weaknesses": [
-      "Talismans sacrés"
-    ]
+      "Talismans shinto"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Yokai_emaki.jpg"
   },
   {
     "name": "Wendigo",
@@ -53,14 +59,48 @@
     "continent": "Amérique",
     "culture": "Mythologie algonquine",
     "period": "Tradition précoloniale",
-    "biography": "Esprit cannibale symbolisant la famine et la cupidité.",
+    "biography": "Esprit cannibale symbolisant la famine et la cupidité dans les forêts nordiques.",
     "powers": [
       "Force surhumaine",
       "Résistance au froid"
     ],
     "weaknesses": [
-      "Feu"
-    ]
+      "Feu",
+      "Rituels chamaniques"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/32/Wendigo.jpg"
+  },
+  {
+    "name": "Baba Yaga",
+    "country": "Russie",
+    "continent": "Europe",
+    "culture": "Folklore slave",
+    "period": "Tradition médiévale",
+    "biography": "Sorcière vivant dans une cabane sur pattes de poulet. Figure ambivalente du folklore slave.",
+    "powers": [
+      "Magie ancienne",
+      "Vol mystique"
+    ],
+    "weaknesses": [
+      "Rituels sacrés"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Baba_Yaga_Viktor_Vasnetsov.jpg"
+  },
+  {
+    "name": "Chupacabra",
+    "country": "Porto Rico",
+    "continent": "Amérique",
+    "culture": "Cryptozoologie moderne",
+    "period": "1995",
+    "biography": "Créature moderne accusée d’attaquer le bétail en Amérique latine.",
+    "powers": [
+      "Vitesse",
+      "Discrétion nocturne"
+    ],
+    "weaknesses": [
+      "Armes conventionnelles"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Chupacabra_sketch.jpg"
   },
   {
     "name": "Bunyip",
@@ -68,13 +108,14 @@
     "continent": "Océanie",
     "culture": "Mythologie aborigène",
     "period": "Tradition orale ancienne",
-    "biography": "Créature aquatique mystérieuse vivant dans les marécages.",
+    "biography": "Créature aquatique mystérieuse vivant dans les marais australiens.",
     "powers": [
       "Camouflage",
       "Vie aquatique"
     ],
     "weaknesses": [
-      "Assèchement de l’eau"
-    ]
+      "Assèchement des marécages"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Bunyip_illustration.jpg"
   }
 ]

@@ -1,11 +1,11 @@
-# MONSTRE - Encyclopédie Mondiale
+# MONSTRE - Encyclopédie Premium
 
-Projet prêt pour GitHub Pages.
+Version avancée avec images Wikipédia.
 
-## 🚀 Déploiement
-1. Upload sur GitHub
+## Déploiement GitHub Pages
+1. Upload tous les fichiers
 2. Settings → Pages
-3. Source → main branch
-4. Ouvre l’URL générée
+3. Branch: main / root
+4. Accède à l’URL générée
 
-Projet 100% HTML/CSS/JS, compatible GitHub Pages.
+Compatible 100% GitHub Pages.
