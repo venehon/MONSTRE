@@ -2,290 +2,86 @@
   {
     "name": "Dracula",
     "country": "Roumanie",
-    "continent": "Europe",
-    "culture": "Folklore roumain / Roman gothique",
-    "period": "XVe siècle / 1897",
-    "biography": "Vampire aristocratique inspiré de Vlad III. Popularisé par Bram Stoker.",
-    "powers": [
-      "Immortalité",
-      "Métamorphose",
-      "Hypnose"
-    ],
-    "weaknesses": [
-      "Soleil",
-      "Ail",
-      "Pieu en bois"
-    ]
+    "continent": "Europe"
   },
   {
     "name": "Kraken",
     "country": "Norvège",
-    "continent": "Europe",
-    "culture": "Folklore scandinave",
-    "period": "XVIIIe siècle",
-    "biography": "Monstre marin colossal capable d’engloutir des navires.",
-    "powers": [
-      "Tentacules géants",
-      "Force colossale"
-    ],
-    "weaknesses": [
-      "Profondeurs marines"
-    ]
+    "continent": "Europe"
   },
   {
     "name": "Baba Yaga",
     "country": "Russie",
-    "continent": "Europe",
-    "culture": "Folklore slave",
-    "period": "Moyen Âge",
-    "biography": "Sorcière vivant dans une cabane sur pattes de poulet.",
-    "powers": [
-      "Magie ancienne",
-      "Vol mystique"
-    ],
-    "weaknesses": [
-      "Rituels sacrés"
-    ]
+    "continent": "Europe"
   },
   {
-    "name": "Minotaure",
+    "name": "Minotaur",
     "country": "Grèce",
-    "continent": "Europe",
-    "culture": "Mythologie grecque",
-    "period": "Antiquité",
-    "biography": "Créature mi-homme mi-taureau enfermée dans le labyrinthe de Crète.",
-    "powers": [
-      "Force brute"
-    ],
-    "weaknesses": [
-      "Armes tranchantes"
-    ]
-  },
-  {
-    "name": "Loup-Garou",
-    "country": "France",
-    "continent": "Europe",
-    "culture": "Folklore européen",
-    "period": "Moyen Âge",
-    "biography": "Humain se transformant en loup lors de la pleine lune.",
-    "powers": [
-      "Transformation",
-      "Force accrue"
-    ],
-    "weaknesses": [
-      "Argent"
-    ]
-  },
-  {
-    "name": "Banshee",
-    "country": "Irlande",
-    "continent": "Europe",
-    "culture": "Folklore celtique",
-    "period": "Tradition orale",
-    "biography": "Esprit féminin annonçant la mort par ses cris.",
-    "powers": [
-      "Présage de mort"
-    ],
-    "weaknesses": [
-      "Prières"
-    ]
+    "continent": "Europe"
   },
   {
     "name": "Yokai",
     "country": "Japon",
-    "continent": "Asie",
-    "culture": "Folklore japonais",
-    "period": "Époque Edo",
-    "biography": "Ensemble d’esprits et créatures surnaturelles japonaises.",
-    "powers": [
-      "Illusions",
-      "Métamorphose"
-    ],
-    "weaknesses": [
-      "Talismans shinto"
-    ]
+    "continent": "Asie"
   },
   {
     "name": "Oni",
     "country": "Japon",
-    "continent": "Asie",
-    "culture": "Mythologie japonaise",
-    "period": "Antiquité",
-    "biography": "Démon géant rouge ou bleu armé d’une massue.",
-    "powers": [
-      "Force surhumaine"
-    ],
-    "weaknesses": [
-      "Rituels bouddhistes"
-    ]
+    "continent": "Asie"
   },
   {
     "name": "Jiangshi",
     "country": "Chine",
-    "continent": "Asie",
-    "culture": "Folklore chinois",
-    "period": "Dynastie Qing",
-    "biography": "Vampire sauteur absorbant l’énergie vitale.",
-    "powers": [
-      "Absorption d’énergie"
-    ],
-    "weaknesses": [
-      "Talismans taoïstes"
-    ]
+    "continent": "Asie"
   },
   {
     "name": "Naga",
     "country": "Inde",
-    "continent": "Asie",
-    "culture": "Mythologie hindoue",
-    "period": "Antiquité",
-    "biography": "Serpent divin gardien des eaux.",
-    "powers": [
-      "Contrôle des eaux"
-    ],
-    "weaknesses": [
-      "Garuda"
-    ]
-  },
-  {
-    "name": "Aswang",
-    "country": "Philippines",
-    "continent": "Asie",
-    "culture": "Folklore philippin",
-    "period": "Tradition ancienne",
-    "biography": "Créature vampirique nocturne.",
-    "powers": [
-      "Vol nocturne"
-    ],
-    "weaknesses": [
-      "Lumière du jour"
-    ]
-  },
-  {
-    "name": "Mokele-Mbembe",
-    "country": "Congo",
-    "continent": "Afrique",
-    "culture": "Légendes congolaises",
-    "period": "Tradition orale",
-    "biography": "Créature lacustre ressemblant à un dinosaure.",
-    "powers": [
-      "Force massive"
-    ],
-    "weaknesses": [
-      "Inconnues"
-    ]
-  },
-  {
-    "name": "Tokoloshe",
-    "country": "Afrique du Sud",
-    "continent": "Afrique",
-    "culture": "Folklore zoulou",
-    "period": "Tradition ancienne",
-    "biography": "Petit démon malveillant invisible.",
-    "powers": [
-      "Invisibilité"
-    ],
-    "weaknesses": [
-      "Objets sacrés"
-    ]
-  },
-  {
-    "name": "Grootslang",
-    "country": "Afrique du Sud",
-    "continent": "Afrique",
-    "culture": "Mythologie africaine",
-    "period": "Ancienne",
-    "biography": "Créature mi-serpent mi-éléphant.",
-    "powers": [
-      "Force gigantesque"
-    ],
-    "weaknesses": [
-      "Pierres précieuses"
-    ]
+    "continent": "Asie"
   },
   {
     "name": "Wendigo",
     "country": "Canada",
-    "continent": "Amérique",
-    "culture": "Mythologie algonquine",
-    "period": "Précolonial",
-    "biography": "Esprit cannibale symbolisant la famine.",
-    "powers": [
-      "Force surhumaine"
-    ],
-    "weaknesses": [
-      "Feu"
-    ]
+    "continent": "Amérique"
   },
   {
     "name": "Chupacabra",
     "country": "Porto Rico",
-    "continent": "Amérique",
-    "culture": "Cryptozoologie moderne",
-    "period": "1995",
-    "biography": "Créature attaquant le bétail en Amérique latine.",
-    "powers": [
-      "Vitesse"
-    ],
-    "weaknesses": [
-      "Armes à feu"
-    ]
+    "continent": "Amérique"
   },
   {
     "name": "La Llorona",
     "country": "Mexique",
-    "continent": "Amérique",
-    "culture": "Folklore mexicain",
-    "period": "Colonial",
-    "biography": "Fantôme pleurant ses enfants noyés.",
-    "powers": [
-      "Apparitions nocturnes"
-    ],
-    "weaknesses": [
-      "Prières"
-    ]
+    "continent": "Amérique"
   },
   {
     "name": "Bigfoot",
     "country": "USA",
-    "continent": "Amérique",
-    "culture": "Cryptozoologie",
-    "period": "XXe siècle",
-    "biography": "Humanoïde géant vivant dans les forêts nord-américaines.",
-    "powers": [
-      "Force",
-      "Discrétion"
-    ],
-    "weaknesses": [
-      "Preuves scientifiques"
-    ]
+    "continent": "Amérique"
+  },
+  {
+    "name": "Mokele-Mbembe",
+    "country": "Congo",
+    "continent": "Afrique"
+  },
+  {
+    "name": "Tokoloshe",
+    "country": "Afrique du Sud",
+    "continent": "Afrique"
+  },
+  {
+    "name": "Grootslang",
+    "country": "Afrique du Sud",
+    "continent": "Afrique"
   },
   {
     "name": "Bunyip",
     "country": "Australie",
-    "continent": "Océanie",
-    "culture": "Mythologie aborigène",
-    "period": "Ancienne",
-    "biography": "Monstre aquatique des marais australiens.",
-    "powers": [
-      "Vie aquatique"
-    ],
-    "weaknesses": [
-      "Assèchement"
-    ]
+    "continent": "Océanie"
   },
   {
     "name": "Taniwha",
     "country": "Nouvelle-Zélande",
-    "continent": "Océanie",
-    "culture": "Mythologie maorie",
-    "period": "Tradition orale",
-    "biography": "Esprit protecteur ou destructeur des eaux.",
-    "powers": [
-      "Protection mystique"
-    ],
-    "weaknesses": [
-      "Offrandes rituelles"
-    ]
+    "continent": "Océanie"
   }
 ]
